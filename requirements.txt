@@ -1,0 +1,24 @@
+# FastAPI and server
+fastapi
+uvicorn
+python-multipart
+
+# Database
+
+# AI and ML
+scikit-learn
+spacy
+pandas
+numpy
+joblib
+
+# Data processing
+python-dateutil
+textblob
+
+# API and CORS
+fastapi-cors
+pydantic
+
+# Utilities
+python-dotenv
