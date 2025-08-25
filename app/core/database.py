@@ -3,14 +3,18 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 from dotenv import load_dotenv
+from urllib.parse import quote_plus
 
 # Loading my environment variables
 load_dotenv()
 
+# I need to URL-encode the password because it contains special characters
+password = quote_plus(os.getenv('DB_PASSWORD'))  # This handles the @ symbol in password
+
 # Building my MySQL database URL from environment variables
 # I'm using the format: mysql+pymysql://user:password@host:port/database
 DATABASE_URL = (
-    f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+    f"mysql+pymysql://{os.getenv('DB_USER')}:{password}"
     f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT', '3306')}/{os.getenv('DB_NAME')}"
 )
 
